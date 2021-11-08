@@ -56,8 +56,8 @@ async function starts() {
         start('2', 'Connecting...')
     })
     client.on('open', () => {
-        if (!fs.existsSync('./BarBar.json')) {
-            fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+        if (!fs.existsSync('./senku.json')) {
+            fs.writeFileSync('./senku.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
         }
         success('2', 'Connected')
         print("[𓄵green|Dev𓄳] MhankBarBar")
@@ -75,7 +75,7 @@ async function starts() {
     })
 
     await client.connect({timeoutMs: 30*1000})
-    fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+    fs.writeFileSync('./senku.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
 
     client.on('group-participants-update', async (anu) => {
         try {
