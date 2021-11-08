@@ -51,7 +51,7 @@ async function starts() {
     client.on('qr', () => {
         print("[𓄵red|!𓄳] Scan the qr code on above")
     })
-    fs.existsSync('./BarBar.json') && client.loadAuthInfo('./BarBar.json')// && client.once.loadAuthInfo('ses.json')
+    fs.existsSync('./senku.json') && client.loadAuthInfo('./BarBar.json')// && client.once.loadAuthInfo('ses.json')
 
     client.on('connecting', () => {
         start('2', 'Connecting...')
@@ -68,8 +68,8 @@ async function starts() {
         start('2',`Because ${reason} reconnecting : ${isReconnecting}`)
         if (!isReconnecting && reason == 'invalid_session') {
             print("[𓄵red|!𓄳] Session invalid, session file deleted")
-            if (fs.existsSync('./BarBar.json')) {
-                fs.unlinkSync('./BarBar.json')
+            if (fs.existsSync('./senku.json')) {
+                fs.unlinkSync('./senku.json')
             }
             client.clearAuthInfo()
         }
