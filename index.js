@@ -51,7 +51,7 @@ async function starts() {
     client.on('qr', () => {
         print("[𓄵red|!𓄳] Scan the qr code on above")
     })
-    fs.existsSync('./senku.json') && client.loadAuthInfo('./BarBar.json')// && client.once.loadAuthInfo('ses.json')
+    fs.existsSync('./senku.json') && client.loadAuthInfo('./senku.json')// && client.once.loadAuthInfo('senku.json')
 
     client.on('connecting', () => {
         start('2', 'Connecting...')
