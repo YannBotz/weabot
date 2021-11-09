@@ -47,6 +47,8 @@ module.exports = msgHndlr = async (BarBar, mek) => {
             return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
         }
         const isOwner = settings.owner.includes(sender)
+        const q = args.join(' ')
+
 
         if (isGroup && isCmd) print(`𓄵green|❑𓄳 ${time} 𓄵green|${cmd}𓄳 from 𓄵blue|${pushname}𓄳 on 𓄵purple|${groupName}𓄳`)
         if (!isGroup && isCmd) print(`𓄵green|❑𓄳 ${time} 𓄵green|${cmd}𓄳 from 𓄵blue|${pushname}𓄳`)
@@ -58,7 +60,7 @@ module.exports = msgHndlr = async (BarBar, mek) => {
             case "help": case "menu":
            //   btn = [{id: ``, text: "Menu"}]
 // return BarBar.sendListMsg(from, help.help(pushname), "Menu", help.menuList())
- return BarBar.reply(from,help.menu(pushname) )
+ return mek.reply(,help.menu(pushname) )
 
 
             case "ping":
@@ -211,6 +213,26 @@ module.exports = msgHndlr = async (BarBar, mek) => {
                 }
             /* -------> [ End ] <-------- */
             default:
+            
+         
+if (body.startsWith('>')){
+console.log(color('[EVAL]'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V1 brooo`))
+ras = body.slice(1)
+function _(rem) {
+ren = JSON.stringify(rem,null,2)
+pes = util.format(ren)
+return mek.reply(pes)
+}
+try{q
+return mek.reply(require('util').format(eval(`(async () => { ${ras} })()`)))
+} catch(err) {
+e = String(err)
+return mek.reply(e)
+}
+}   
+            
+            
+            
                 return
         }
     } catch (e) {
