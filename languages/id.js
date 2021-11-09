@@ -8,8 +8,8 @@ class ind {
         this.prefix = prefix
     }
 
-menu(pushname){
-  return `𝙷𝚊𝚕𝚘 ${pushname}
+menu(pushname,sender){
+  return `𝙷𝚊𝚕𝚘 ${pushname} ( @${sender.split("@")[0]})
 𝙵𝚒𝚝𝚞𝚛 𝚢𝚊𝚗𝚐 𝚝𝚎𝚛𝚜𝚎𝚍𝚒𝚊 𝚙𝚊𝚍𝚊 𝚋𝚘𝚝 𝚒𝚗𝚒!
 
 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 :
