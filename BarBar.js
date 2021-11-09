@@ -70,7 +70,7 @@ footerText: '@0',
 buttons: mennu,
 headerType: 1
 }
-return BarBar.sendMessage(from, menunya, MessageType.buttonsMessage,{contextInfo: {mentionedJid:parseMention(menunya)},quoted:mek})
+return BarBar.sendMessage(from, menunya, MessageType.buttonsMessage,{contextInfo: {mentionedJid:[...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')},quoted:mek})
 
 case "owner":
 BarBar.sendMessage(from,{"displayName":"ler",
