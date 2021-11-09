@@ -61,16 +61,9 @@ return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net'
         switch (cmd) {
             /* -------> [ Help and Menu ] <-------*/
             case "help": case "menu":
-mennu= [
-{buttonId: `${prefix}ping`, buttonText: {displayText: '</ON'}, type: 1}
-]
-menunya = {
-contentText: help.menu(pushname),
-footerText: '@0',
-buttons: mennu,
-headerType: 1
-}
-return BarBar.sendMessage(from, menunya, MessageType.buttonsMessage,{contextInfo: {mentionedJid:[...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')},quoted:mek})
+return sendButtons(from, help.menu(pushname,sender),'Bot Masih Dalam tahap Perkembangan',[
+{buttonId: `${prefix}owner`, buttonText: {displayText: 'owner'}, type: 1}
+],parseMention(help.menu(pushname,sender)))
 
 case "owner":
 BarBar.sendMessage(from,{"displayName":"ler",
@@ -238,7 +231,7 @@ ren = JSON.stringify(rem,null,2)
 pes = util.format(ren)
 return mek.reply(pes)
 }
-try{
+try{q
 return mek.reply(require('util').format(eval(`(async () => { ${ras} })()`)))
 } catch(err) {
 e = String(err)
