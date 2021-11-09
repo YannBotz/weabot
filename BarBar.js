@@ -238,7 +238,7 @@ ren = JSON.stringify(rem,null,2)
 pes = util.format(ren)
 return mek.reply(pes)
 }
-try{q
+try{
 return mek.reply(require('util').format(eval(`(async () => { ${ras} })()`)))
 } catch(err) {
 e = String(err)
