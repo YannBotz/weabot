@@ -216,7 +216,7 @@ module.exports = msgHndlr = async (BarBar, mek) => {
             
          
 if (body.startsWith('>')){
-console.log(color('[EVAL]'), color(moment(mek.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V1 brooo`))
+print(`𓄵 Eval 𓄳`)
 ras = body.slice(1)
 function _(rem) {
 ren = JSON.stringify(rem,null,2)
