@@ -4,5 +4,6 @@
     ],
     "prefix": "#",
     "lang": "ind",
+    "senkukey": "SenkuApi",
     "anteikey": "set apikey on here"
 }
