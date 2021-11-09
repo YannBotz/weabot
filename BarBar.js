@@ -55,7 +55,7 @@ module.exports = msgHndlr = async (BarBar, mek) => {
 
         switch (cmd) {
             /* -------> [ Help and Menu ] <-------*/
-            case "help":
+            case "help": case "menu":
                 return BarBar.sendListMsg(from, help.help(pushname), "Menu", help.menuList())
 
             case "ping":
