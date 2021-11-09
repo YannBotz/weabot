@@ -60,7 +60,7 @@ module.exports = msgHndlr = async (BarBar, mek) => {
             case "help": case "menu":
            //   btn = [{id: ``, text: "Menu"}]
 // return BarBar.sendListMsg(from, help.help(pushname), "Menu", help.menuList())
- return mek.reply(,help.menu(pushname) )
+ return mek.reply(help.menu(pushname) )
 
 
             case "ping":
