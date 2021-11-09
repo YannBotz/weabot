@@ -67,7 +67,7 @@ mennu= [
 menunya = {
 contentText: help.menu(pushname),
 footerText: '@0',
-buttons: gc,
+buttons: mennu,
 headerType: 1
 }
 return BarBar.sendMessage(from, menunya, MessageType.buttonsMessage,{contextInfo: {mentionedJid:parseMention(menunya)},quoted:mek})
