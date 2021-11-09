@@ -56,12 +56,9 @@ module.exports = msgHndlr = async (BarBar, mek) => {
         switch (cmd) {
             /* -------> [ Help and Menu ] <-------*/
             case "help": case "menu":
-                ngetes = [
-{buttonId: `owner`, buttonText: {displayText: '</OWNER'}, type: 1}
-]
+              btn = [{id: ``, text: "Menu"}]
 // return BarBar.sendListMsg(from, help.help(pushname), "Menu", help.menuList())
-return BarBar.sendButtons(from, "Tes Woi", ngetes, "Tes")
-
+return BarBar.sendButtonsImage(from, "Menu","https://telegra.ph/file/3fc764fcba43be3ca4283.jpg",btn,"tes",mek.isGroup ? mek : false)
 
             case "ping":
                 return BarBar.sendText(from, "Pong!!")
