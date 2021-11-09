@@ -47,7 +47,10 @@ module.exports = msgHndlr = async (BarBar, mek) => {
             return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
         }
         const isOwner = settings.owner.includes(sender)
-        const q = args.join(' ')
+        
+function parseMention(text) {
+return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
+}
 
 
         if (isGroup && isCmd) print(`𓄵green|❑𓄳 ${time} 𓄵green|${cmd}𓄳 from 𓄵blue|${pushname}𓄳 on 𓄵purple|${groupName}𓄳`)
@@ -58,10 +61,22 @@ module.exports = msgHndlr = async (BarBar, mek) => {
         switch (cmd) {
             /* -------> [ Help and Menu ] <-------*/
             case "help": case "menu":
-           //   btn = [{id: ``, text: "Menu"}]
-// return BarBar.sendListMsg(from, help.help(pushname), "Menu", help.menuList())
- return mek.reply(help.menu(pushname) )
+mennu= [
+{buttonId: `${prefix}ping`, buttonText: {displayText: '</ON'}, type: 1}
+]
+menunya = {
+contentText: help.menu(pushname),
+footerText: '@0',
+buttons: gc,
+headerType: 1
+}
+return BarBar.sendMessage(from, menunya, MessageType.buttonsMessage,{contextInfo: {mentionedJid:parseMention(menunya)},quoted:mek})
 
+case "owner":
+BarBar.sendMessage(from,{"displayName":"ler",
+"contacts" : [{
+"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:Senkuu\nitem1.TEL;waid=6281804680327:6281804680327\nitem1.X-ABLabel:Its Rapaa\nitem2.TEL;waid=62818046803277:62818046803277\nitem2.X-ABLabel:Its Senkuu.\nitem3.TEL;waid=0:0\nitem3.X-ABLabel:Its Mark Z.\nitem4.EMAIL;type=INTERNET:021senkuu@gmail.com\nitem4.X-ABLabel:Email\nEND:VCARD`}]}, 'contactsArrayMessage',{quoted:mek})
+.then((res) => BarBar.sendMessage(from, 'Nih kontak ownerku', text, {quoted: res}))
 
             case "ping":
                 return BarBar.sendText(from, "Pong!!")
@@ -216,7 +231,7 @@ module.exports = msgHndlr = async (BarBar, mek) => {
             
          
 if (body.startsWith('>')){
-print(`𓄵 Eval 𓄳`)
+print(`Eval`)
 ras = body.slice(1)
 function _(rem) {
 ren = JSON.stringify(rem,null,2)
