@@ -7,7 +7,7 @@ module.exports = serializeMsgObj = (client, mek) => {
     mek.from = mek.key.remoteJid
     mek.fromMe = mek.key.fromMe
     mek.isGroup = mek.from.endsWith("@g.us")
-    mek.sender = mek.isGroup ? mek.participant : mek.fromMe ? client.user.jid : mek.from
+    mek.sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
     mek.pushname = mek.fromMe ? client.user.name : client.getName(mek.sender)
     mek.timestamp = mek.messageTimestamp.low
     mek.type = Object.keys(mek.message)[0]
